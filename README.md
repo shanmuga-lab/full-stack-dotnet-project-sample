@@ -34,6 +34,8 @@ This solution is a multi-service .NET full-stack application with separate servi
 - Target framework: `net10.0` (Catalog.API)
 - Architecture support for application, infrastructure, and core domain layers
 - Blob storage integration: `Azure.Storage.Blobs` v12.29.1
+- Database provider: `Microsoft.EntityFrameworkCore.SqlServer` v8.0.29
+- CQRS pattern support with MediatR: `MediatR` v12.1.1 and `MediatR.Extensions.Microsoft.DependencyInjection` v12.1.1
 
 ## Prerequisites
 
