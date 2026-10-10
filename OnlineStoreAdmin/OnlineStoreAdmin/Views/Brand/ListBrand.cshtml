@@ -1,0 +1,62 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using OnlineStoreModel.Models.BrandModels;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<BrandModel>
+            <div class="row mt-3">
+                <div class="h1 col-md-12 text-center">
+                    List of Brands
+                </div>
+            <div class="row mt-3">
+                <div class="col-md-12 text-center">
+                    <a class="btn btn-outline-primary" 
+                    asp-controller="Brand" 
+                    asp-action="AddBrand">Add Brand</a>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+            <table class="table table-primary table-hover w-75 mx-auto">
+                <thead class="table-dark text-center">
+                    <tr>
+                        <th>Brand Id</th>
+                        <th>Name</th>
+                        <th>Modify</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+        <tbody class="text-center">
+            @if (@Model.Count() > 0)
+            {
+                @foreach (var brand in Model)
+                {
+                    <tr>
+                        <td>@brand.Id</td>
+                        <td>@brand.Name</td>
+                        <td><a class="btn btn-outline-secondary"
+                             asp-controller="Brand"
+                             asp-action="ModifyBrand"
+                             asp-route-id="@brand.Id"
+                             >Modify</a></td>
+                        <td><a class="btn btn-outline-danger"
+                             asp-controller="Brand"
+                             asp-action="DeleteBrand"
+                             asp-route-id="@brand.Id"
+                             >Delete</a></td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="4">No brands found.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+        </div>    </div>>
+    </div>

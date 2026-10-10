@@ -1,0 +1,14 @@
+# Build outputs
+bin/
+obj/
+
+# Visual Studio / VS Code local artifacts
+.vs/
+.vscode/
+.DS_Store
+*.csproj.user
+
+*./appsettings.Development.json
+appsettings.*.json
+*.user
+/OnlineStoreAdmin/OnlineStoreAdmin/appsettings.Development.json

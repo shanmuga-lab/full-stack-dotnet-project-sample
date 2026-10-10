@@ -1,0 +1,97 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using OnlineStoreModel.Models.ProductModels;
+@using OnlineStoreModel.Models.BrandModels;
+@using OnlineStoreModel.Models.TypeModels;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<BrandModel> brands = ViewBag.Brands;
+    List<TypeModel> types = ViewBag.Types;
+}
+@model CreateProductModel
+            <div class="row mt-3">
+                <div class="h1 col-md-12 text-center">
+                    Add new Product
+                </div>
+            <form method="post" enctype="multipart/form-data">
+                <div class="row mt-3">
+                    <div class="col-lg-12 mx-auto rounder border p-3 mt-3 text-center">
+                        <div class="row mt-3">
+                            <div class="col-md-4 text-center">
+                                <label asp-for="ProductName">Product Name</label>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <input type="text" class="form-control" asp-for="ProductName"/>
+                                <span class="text-danger align-content-start" asp-validation-for="ProductName"></span>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-4 text-center">
+                                <label asp-for="ProductDescription">Product Description</label>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <textarea class="form-control" asp-for="ProductDescription"></textarea>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-4 text-center">
+                                <label asp-for="BrandId">Brand</label>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <select class="form-control" asp-for="BrandId">
+                                    <option value="0">--Select a brand--</option>
+                                        @foreach (var brand in brands)
+                                        {
+                                            <option value="@brand.Id">@brand.Name</option>
+                                        }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-4 text-center">
+                                <label asp-for="TypeId">Type</label>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <select class="form-control" asp-for="TypeId">
+                                    <option value="0">--Select a type--</option>
+                                        @foreach (var type in types)
+                                        {
+                                            <option value="@type.Id">@type.Name</option>
+                                        }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-4 text-center">
+                                <label asp-for="UploadImage">Product Image</label>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <input type="file" class="form-control" asp-for="UploadImage"/>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-4 text-center">
+                                <label asp-for="ProductPrice">Product Price</label>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <input type="number" class="form-control" asp-for="ProductPrice"/>
+                        <span class="text-danger" asp-validation-for="ProductPrice"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                        <div class="row mt-3">
+                            <div class="col-md-4 text-center">
+                                <a class="btn btn-outline-secondary" href="@Url.Action("Index", "Product")">Cancel</a>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <button type="submit" class="btn btn-outline-primary"
+                                    asp-controller="Product" 
+                                    asp-action="CreateProduct">Submit</button>
+                            </div>
+                        </div>
+                </div>
+            </form>
+            </div>  
