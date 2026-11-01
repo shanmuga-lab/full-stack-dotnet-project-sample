@@ -31,7 +31,7 @@ This solution is a multi-service .NET full-stack application with separate servi
 - Startup configuration for `BrandRepository` is in `OnlineStoreAdmin/Program.cs`.
 
 ### Catalog Services
-- Target framework: `net10.0` (Catalog.API)
+- Target framework: `net8.0` (Catalog.API)
 - Architecture support for application, infrastructure, and core domain layers
 - Blob storage integration: `Azure.Storage.Blobs` v12.29.1
 - Database provider: `Microsoft.EntityFrameworkCore.SqlServer` v8.0.29
